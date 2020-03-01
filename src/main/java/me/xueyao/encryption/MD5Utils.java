@@ -31,9 +31,6 @@ public class MD5Utils {
 				}else{
 					password = password + hexString;
 				}
-				//工具类加密的结果：90150983cd24fb0d6963f7d28e17f72
-				//工具类加密的结果：900150983cd24fb0d6963f7d28e17f72
-				//mysql加密结果： 900150983cd24fb0d6963f7d28e17f72
 			}
 			
 			return password;
@@ -41,9 +38,5 @@ public class MD5Utils {
 			e.printStackTrace();
 			return "";
 		} 
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(MD5Utils.getPassword("abc"));
 	}
 }

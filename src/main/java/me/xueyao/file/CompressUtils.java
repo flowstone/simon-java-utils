@@ -1,18 +1,9 @@
 package me.xueyao.file;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import java.util.zip.ZipOutputStream;
+import java.util.zip.*;
 
 /**
  * 对文件、输出流提供压缩、解压操作的工具类
@@ -256,15 +247,15 @@ public abstract class CompressUtils {
      * 释放资源，关闭输入输出流。
      */
     private static void clean(InputStream in, OutputStream out) throws IOException {
-        FileUtils.close(in);
-        FileUtils.close(out);
+        FileIoUtil.close(in);
+        FileIoUtil.close(out);
     }
 
     /**
      * 释放资源，包括关闭输入输出流、关闭文件通道、释放文件锁。
      */
     private static void clean(InputStream in, OutputStream out, FileLock lock, FileChannel channel) throws IOException {
-        FileUtils.close(in);
+        FileIoUtil.close(in);
 
         // 释放文件锁
         if (lock != null) {
@@ -272,7 +263,7 @@ public abstract class CompressUtils {
         }
 
         // 在关闭压缩输出流之后再关闭通道，如果先关闭通道会导致 压缩文件的格式错误
-        FileUtils.close(out);
+        FileIoUtil.close(out);
         if (channel != null) {
             channel.close();
         }

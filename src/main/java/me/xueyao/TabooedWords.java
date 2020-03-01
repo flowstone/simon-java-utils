@@ -1,7 +1,7 @@
 package me.xueyao;
 
 
-import me.xueyao.file.FileUtils;
+import me.xueyao.file.FileIoUtil;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -50,7 +50,7 @@ public class TabooedWords {
             // Ignore
         }
         finally {
-            FileUtils.close(reader);
+            FileIoUtil.close(reader);
         }
     }
 

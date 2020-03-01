@@ -1,4 +1,4 @@
-package me.xueyao;
+package me.xueyao.file;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

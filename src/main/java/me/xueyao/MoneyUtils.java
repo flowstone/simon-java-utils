@@ -215,11 +215,13 @@ public class MoneyUtils {
         }  
         StringBuffer reverseExceptDotMoney = new StringBuffer(exceptDotMoeny);  
         reverseExceptDotMoney.reverse();//字符串倒转  
-        char[] moneyChar = reverseExceptDotMoney.toString().toCharArray();  
-        StringBuffer returnMeony = new StringBuffer();//返回值  
+        char[] moneyChar = reverseExceptDotMoney.toString().toCharArray();
+		//返回值
+        StringBuffer returnMeony = new StringBuffer();
         for(int i = 0; i < moneyChar.length; i++){  
-            if(i != 0 && i % 3 == 0){  
-                returnMeony.append(",");//每隔3位加','  
+            if(i != 0 && i % 3 == 0){
+				//每隔3位加','
+                returnMeony.append(",");
             }  
             returnMeony.append(moneyChar[i]);  
         }  

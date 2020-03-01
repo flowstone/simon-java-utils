@@ -1,5 +1,8 @@
 package me.xueyao.image;
 
+import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.geometry.Positions;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.color.ColorSpace;
@@ -546,5 +549,85 @@ public class ImageUtil {
         String[] formats = filess[filess.length - 1].split("\\.");
         return formats[formats.length - 1];
      }
+
+    /**
+     * 指定大小进行缩放
+     * @param sourceImage 源图片地址
+     * @param width 图片宽度
+     * @param height 图片高度
+     * @param distImage 目标图片地址
+     */
+    public void BigSamllScaleImage(String sourceImage, Integer width, Integer height, String distImage) {
+        try {
+            Thumbnails.of(sourceImage).size(width, height).toFile(distImage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 不按照比例，指定大小进行缩放
+     * @param sourceImage 源图片
+     * @param width 图片宽度
+     * @param height 图片高度
+     * @param distImage 目的图片
+     */
+    public void noKeepScaleImage(String sourceImage, Integer width, Integer height, String distImage) {
+        try {
+            Thumbnails.of(sourceImage).size(width, height).keepAspectRatio(false).toFile(distImage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 旋转图片
+     * @param sourceImage 源图片
+     * @param width 图片宽度
+     * @param height 图片高度
+     * @param rotate 角度，正数顺时针，负数逆时针
+     * @param distImage
+     */
+    public void rotateImage(String sourceImage, Integer width, Integer height, Double rotate, String distImage) {
+        try {
+            Thumbnails.of(sourceImage).size(width, height).rotate(rotate).toFile(distImage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 加水印图片
+     * @param sourceImage 源图片
+     * @param width 图片宽度
+     * @param height 图片高度
+     * @param markImage 水印图片地址
+     * @param distImage 目标图片
+     */
+    public void watermarkImage(String sourceImage, Integer width, Integer height, String markImage, String distImage) {
+        try {
+            Thumbnails.of(sourceImage).size(width, height).watermark(Positions.BOTTOM_RIGHT,
+                    ImageIO.read(new File(markImage)), 0.5f).
+                    outputQuality(0.8f).toFile(distImage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 转化图片样式
+     * @param sourceImage 源图片
+     * @param width 图片宽度
+     * @param height 图片高度
+     * @param ext 图片转换的扩展名
+     * @param distImage 目标图片
+     */
+    public void convertImage(String sourceImage, Integer width, Integer height, String ext, String distImage) {
+        try {
+            Thumbnails.of(sourceImage).size(width, height).outputFormat(ext).toFile(distImage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

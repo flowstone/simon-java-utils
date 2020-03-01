@@ -17,7 +17,8 @@ import java.util.Set;
  * @Date ： 2014年4月20日 下午2:27:06
  */
 public class SensitiveWordInit {
-	private String ENCODING = "GBK";    //字符编码
+	//字符编码
+	private String ENCODING = "GBK";
 	@SuppressWarnings("rawtypes")
 	public HashMap sensitiveWordMap;
 	
@@ -79,31 +80,38 @@ public class SensitiveWordInit {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void addSensitiveWordToHashMap(Set<String> keyWordSet) {
-		sensitiveWordMap = new HashMap(keyWordSet.size());     //初始化敏感词容器，减少扩容操作
+		//初始化敏感词容器，减少扩容操作
+		sensitiveWordMap = new HashMap(keyWordSet.size());
 		String key = null;  
 		Map nowMap = null;
 		Map<String, String> newWorMap = null;
 		//迭代keyWordSet
 		Iterator<String> iterator = keyWordSet.iterator();
 		while(iterator.hasNext()){
-			key = iterator.next();    //关键字
+			//关键字
+			key = iterator.next();
 			nowMap = sensitiveWordMap;
 			for(int i = 0 ; i < key.length() ; i++){
-				char keyChar = key.charAt(i);       //转换成char型
-				Object wordMap = nowMap.get(keyChar);       //获取
-				
-				if(wordMap != null){        //如果存在该key，直接赋值
+				//转换成char型
+				char keyChar = key.charAt(i);
+				//获取
+				Object wordMap = nowMap.get(keyChar);
+				//如果存在该key，直接赋值
+				if(wordMap != null){
 					nowMap = (Map) wordMap;
 				}
-				else{     //不存在则，则构建一个map，同时将isEnd设置为0，因为他不是最后一个
-					newWorMap = new HashMap<String,String>();
-					newWorMap.put("isEnd", "0");     //不是最后一个
+				else{
+					//不存在则，则构建一个map，同时将isEnd设置为0，因为他不是最后一个
+					newWorMap = new HashMap<>(16);
+					//不是最后一个
+					newWorMap.put("isEnd", "0");
 					nowMap.put(keyChar, newWorMap);
 					nowMap = newWorMap;
 				}
 				
 				if(i == key.length() - 1){
-					nowMap.put("isEnd", "1");    //最后一个
+					//最后一个
+					nowMap.put("isEnd", "1");
 				}
 			}
 		}
@@ -120,15 +128,17 @@ public class SensitiveWordInit {
 	@SuppressWarnings("resource")
 	private Set<String> readSensitiveWordFile() throws Exception{
 		Set<String> set = null;
-		
-		File file = new File("D:\\SensitiveWord.txt");    //读取文件
+		//读取文件
+		File file = new File("D:\\SensitiveWord.txt");
 		InputStreamReader read = new InputStreamReader(new FileInputStream(file),ENCODING);
 		try {
-			if(file.isFile() && file.exists()){      //文件流是否存在
+			//文件流是否存在
+			if(file.isFile() && file.exists()){
 				set = new HashSet<String>();
 				BufferedReader bufferedReader = new BufferedReader(read);
 				String txt = null;
-				while((txt = bufferedReader.readLine()) != null){    //读取文件，将文件内容放入到set中
+				//读取文件，将文件内容放入到set中
+				while((txt = bufferedReader.readLine()) != null){
 					set.add(txt);
 			    }
 			}

@@ -954,7 +954,8 @@ public abstract class SpellUtils {
         StringBuilder retuBuf = new StringBuilder();
         for (int i = 0, Len = chars.length; i < Len; i++) {
             int ascii = getCnAscii(chars[i]);
-            if (ascii == 0) { // 取ascii时出错
+            // 取ascii时出错
+            if (ascii == 0) {
                 retuBuf.append(chars[i]);
             }
             else {

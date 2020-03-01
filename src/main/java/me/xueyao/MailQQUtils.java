@@ -1,13 +1,12 @@
 package me.xueyao;
 
-import java.util.Date;
-import java.util.Properties;
-
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Date;
+import java.util.Properties;
 
 public class MailQQUtils {
 	/**
@@ -18,7 +17,7 @@ public class MailQQUtils {
 	 */
 	public static void send(String to, String subject, String msgText) {
 		//发邮件的地址
-		String from = "931330220@qq.com"; 
+		String from = "发邮件的地址";
 		String password = "授权码";
 		//邮件发送服务器地址
 		String host = "smtp.qq.com"; 
@@ -57,14 +56,6 @@ public class MailQQUtils {
 		} catch (Exception mex) {
 			mex.printStackTrace();
 		}
-	}
-	public static void main(String[] args) {
-		String to = "18896544516@163.com";
-		String subject = "如何学习?";
-		String msgText = "解决学习困扰,就是天天晚上熬夜学习";
-		MailQQUtils.send(to, subject, msgText);
-
-		
 	}
 
 	

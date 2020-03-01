@@ -1,7 +1,7 @@
 package me.xueyao;
 
 import me.xueyao.date.DateTools;
-import me.xueyao.file.FileUtils;
+import me.xueyao.file.FileIoUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -315,8 +315,8 @@ public abstract class URLUtils {
             return new String(out.toByteArray());
         }
         finally {
-            FileUtils.close(in);
-            FileUtils.close(out);
+            FileIoUtil.close(in);
+            FileIoUtil.close(out);
         }
     }
 

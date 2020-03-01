@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>me.xueyao</groupId>
-    <artifactId>awesome-java-utils</artifactId>
+    <artifactId>simon-java-utils</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Awesome-Java-Utils</name>
     <description>Java Utils</description>
@@ -58,6 +58,12 @@
             <version>2.3.5</version>
         </dependency>
 
+        <!--添加thumbnailator依赖-->
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>[0.4, 0.5)</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
