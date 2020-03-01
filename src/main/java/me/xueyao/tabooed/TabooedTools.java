@@ -1,4 +1,4 @@
-package me.xueyao;
+package me.xueyao.tabooed;
 
 import java.util.ArrayList;
 import java.util.Collection;

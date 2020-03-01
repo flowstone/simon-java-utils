@@ -1,4 +1,4 @@
-package me.xueyao;
+package me.xueyao.tabooed;
 
 import java.io.BufferedReader;
 import java.io.File;

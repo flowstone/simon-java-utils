@@ -1,6 +1,6 @@
 package me.xueyao.collection;
 
-import me.xueyao.ValidateHelper;
+import me.xueyao.validate.ValidateHelper;
 
 import java.math.BigDecimal;
 

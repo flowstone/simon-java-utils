@@ -1,4 +1,4 @@
-package me.xueyao;
+package me.xueyao.format;
 
 import java.math.BigDecimal;
 

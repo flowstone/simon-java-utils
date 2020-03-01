@@ -1,5 +1,7 @@
-package me.xueyao;
+package me.xueyao.http;
 
+import me.xueyao.StringUtils;
+import me.xueyao.validate.Validators;
 import me.xueyao.date.DateTools;
 import me.xueyao.file.FileIoUtil;
 
@@ -28,7 +30,8 @@ public abstract class URLUtils {
     private static final char QUESTION_MARK = '?';
     private static final char SEPARATOR_SIGN = '/';
 
-    private static int BUFFER_SIZE = 1024 * 4; // 4K
+    // 4K
+    private static int BUFFER_SIZE = 1024 * 4;
 
     private static String charSet = "UTF-8";
 

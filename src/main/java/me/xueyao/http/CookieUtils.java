@@ -1,4 +1,4 @@
-package me.xueyao;
+package me.xueyao.http;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

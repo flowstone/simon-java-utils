@@ -1,4 +1,4 @@
-package me.xueyao;
+package me.xueyao.validate;
 
 import java.lang.reflect.Array;
 import java.util.Collection;

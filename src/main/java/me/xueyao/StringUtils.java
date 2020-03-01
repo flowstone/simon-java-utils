@@ -1,5 +1,7 @@
 package me.xueyao;
 
+import me.xueyao.validate.Validators;
+
 import java.io.UnsupportedEncodingException;
 import java.text.NumberFormat;
 import java.util.ArrayList;

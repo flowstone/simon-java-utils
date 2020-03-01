@@ -1,4 +1,4 @@
-package me.xueyao;
+package me.xueyao.http;
 
 import javax.mail.Message;
 import javax.mail.Session;
