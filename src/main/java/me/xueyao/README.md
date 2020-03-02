@@ -9,3 +9,4 @@
 * image - 图片相关工具类
 * tabooed - 敏感词过滤 
 * validate - 校验工具类
+* map - 地图工具类
