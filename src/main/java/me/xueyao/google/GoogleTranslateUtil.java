@@ -35,6 +35,7 @@ public class GoogleTranslateUtil {
 
 /**
  * 谷歌翻译类
+ * 不能有特殊字符，如空格 < >等等
  */
 class GT {
     /**
