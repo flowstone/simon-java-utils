@@ -318,6 +318,28 @@ public class FileIoUtil {
     }
 
     /**
+     * 复制file中的内容到输出流中
+     * @param file 文件内容
+     * @param out 输出流
+     * @throws IOException
+     */
+    public static void copyFile(File file, OutputStream out) throws IOException {
+        InputStream input = null;
+        try {
+            input = new FileInputStream(file);
+            byte[] buf = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = input.read(buf)) > 0) {
+                out.write(buf, 0, bytesRead);
+            }
+        } finally {
+            input.close();
+            out.close();
+        }
+
+    }
+
+    /**
      * 将以 byte 为单位的文件大小转换为一个可读性更好的文件大小，最终结果精确到一位小数。
      *
      * @param size 以 byte 为单位的文件大小
