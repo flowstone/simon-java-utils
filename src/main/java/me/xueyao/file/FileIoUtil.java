@@ -340,6 +340,26 @@ public class FileIoUtil {
     }
 
     /**
+     * 输入流保存到File中
+     * @param in
+     * @param outFile
+     * @throws Exception
+     */
+    public static void copyInputStreamToFile(InputStream in, File outFile) throws Exception {
+        FileOutputStream out = new FileOutputStream(outFile);
+        byte[] bytes = new byte[1024];
+        try {
+            while (in.read(bytes)!= -1) {
+                out.write(bytes);
+                out.flush();
+            }
+        } finally {
+            out.close();
+            in.close();
+        }
+    }
+
+    /**
      * 将以 byte 为单位的文件大小转换为一个可读性更好的文件大小，最终结果精确到一位小数。
      *
      * @param size 以 byte 为单位的文件大小
