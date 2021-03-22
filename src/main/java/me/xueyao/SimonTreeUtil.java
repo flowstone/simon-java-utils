@@ -39,6 +39,7 @@ public class SimonTreeUtil {
     /**
      * 递归获得 所有上级部门列表(非树型结构)
      * 不包含自身列表，请注意去重
+     * @date 2021-03-22 19:35:25
      * @param departmentAllList 所有部门列表
      * @param departmentChildList 子部门列表(搜索匹配到的部门列表)
      * @param result 最后符合的部门列表
